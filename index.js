@@ -69,6 +69,31 @@ function Right() {
   }
 }
 
+let touchStartX = 0;
+let touchEndX = 0;
+
+slider.addEventListener('touchstart', (e) => {
+  touchStartX = e.changedTouches[0].clientX;
+});
+
+slider.addEventListener('touchend', (e) => {
+  touchEndX = e.changedTouches[0].clientX;
+
+  handleSwipe();
+});
+
+function handleSwipe() {
+  const swipeDistance = touchStartX - touchEndX;
+
+  if (Math.abs(swipeDistance) < 50) return;
+
+  if (swipeDistance > 0) {
+    Right();
+  } else {
+    Left();
+  }
+}
+
 arrLeft.addEventListener( "click" , Left);
 arrRight.addEventListener( "click" , Right);
 
@@ -107,8 +132,15 @@ function hideCards() {
   cards.forEach((card, index) => {
     if (index >= startIndex) {
       card.classList.add('hidden');
+      card.addEventListener('transitionend', function handler() {
+        card.style.display = 'none';
+        card.removeEventListener('transitionend', handler);
+      });
     } else {
-      card.classList.remove('hidden');
+      card.style.display = 'block';
+      requestAnimationFrame(() => {
+        card.classList.remove('hidden');
+      });
     }
   });
 }
@@ -117,8 +149,15 @@ function hideWorks() {
   works.forEach((work, index) => {
     if (index >= startIndexWorks) {
       work.classList.add('hidden');
+      work.addEventListener('transitionend', function handler() {
+        work.style.display = 'none';
+        work.removeEventListener('transitionend', handler);
+      });
     } else {
-      work.classList.remove('hidden');
+      work.style.display = 'block';
+      requestAnimationFrame(() => {
+        work.classList.remove('hidden');
+      });
     }
   });
 }
@@ -130,8 +169,16 @@ button.addEventListener('click', () => {
   const hiddenCards = document.querySelectorAll('.partners__logo.hidden');
 
   if (hiddenCards.length > 0) {
-    for (let i = 0; i < 4 && i < hiddenCards.length; i++) {
-      hiddenCards[i].classList.remove('hidden');
+    for (let i = 0; i < startIndex && i < hiddenCards.length; i++) {
+      hiddenCards[i].style.display = 'block';
+
+      requestAnimationFrame(() => {
+        hiddenCards[i].classList.remove('hidden');
+
+        if (document.querySelectorAll('.partners__logo.hidden').length === 0) {
+          button.textContent = 'Скрыть';
+        }
+      });
     }
   } else {
     hideCards();
@@ -147,8 +194,15 @@ worksButton.addEventListener('click', () => {
   const hiddenCards = document.querySelectorAll('.works__img.hidden');
 
   if (hiddenCards.length > 0) {
-    for (let i = 0; i < 6 && i < hiddenCards.length; i++) {
-      hiddenCards[i].classList.remove('hidden');
+    for (let i = 0; i < startIndexWorks && i < hiddenCards.length; i++) {
+      hiddenCards[i].style.display = 'block';
+      requestAnimationFrame(() => {
+        hiddenCards[i].classList.remove('hidden');
+
+        if (document.querySelectorAll('.works__img.hidden').length === 0) {
+          worksButton.textContent = 'Скрыть';
+        }
+      });
     }
   } else {
     hideWorks();
