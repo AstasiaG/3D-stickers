@@ -985,13 +985,13 @@ img {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    height: 35px;
+    height: 25px;
   }
   
   .burger-menu__line {
     display: block;
-    width: 55px;
-    height: 4px;
+    width: 35px;
+    height: 3px;
     border-radius: 5px;
 
     background-color: #ffffff;
@@ -1007,8 +1007,8 @@ img {
   .burger-menu::before {
     content: "";
     position: absolute;
-    width: 55px;
-    height: 4px;
+    width: 35px;
+    height: 3px;
     border-radius: 5px;
   
     background-color: #ffffff;
@@ -1105,15 +1105,16 @@ img {
     min-width: 175px;
     width: 90%;
     height: 55px;
-    font-size: 16px;
+    font-size: 18px;
   }
 
   .logo__img {
-    width: 70px;
+    width: 60px;
   }
 
   .logo_text {
-    font-size: 20px;
+    font-size: 16px;
+    max-width: 170px;
   }
 
   .header__top_link {
@@ -1121,7 +1122,7 @@ img {
   }
 
   .header_bottom {
-    padding: 30px 20px 50px;
+    padding: 30px 20px 150px;
     overflow-y: scroll;
   }
 
@@ -1191,6 +1192,7 @@ img {
 
   .advantages__list {
     gap: 50px;
+    padding: 40px;
   }
 
   .advantages__item:last-child .advantages__item-text {
@@ -1223,8 +1225,8 @@ img {
     width: 100%;
   }
 
-  .feedback__form {
-    padding: 0 20px;
+  .feedback__inner {
+    padding: 33px 20px 27px;
   }
 
   .order form {
