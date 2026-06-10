@@ -4,8 +4,329 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-  
+    <header class="header">
+      <div class="header__top_container">
+        <div class="header__top container">
+          <div class="logo">
+            <img class="logo__img" src="./assets/logo.png" alt="">
+            <p class="logo_text">Объемные наклейки</p>
+          </div>
+          <div class="header__top_links">
+            <a class="header__top_link" href="tel:+7 921 948 2850">+7 921 948 2850</a>
+            <button class="btn btn-white">Заказать звонок</button>
+          </div>
+          <a class="burger-menu" href="#0">
+            <span class="burger-menu__line"></span>
+          </a>
+        </div>
+      </div>
+      <nav class="header_bottom container">
+        <div class="header__bottom_links">
+          <a class="header__top_link" href="tel:+7 921 948 2850">+7 921 948 2850</a>
+          <button class="btn btn-white">Заказать звонок</button>
+        </div>
+        <ul>
+          <li class="header__bottom_link">
+            <a class="btn btn-orange" href="#0">Объемные магниты</a>
+          </li>
+          <li class="header__bottom_link">
+            <a class="btn btn-orange" href="#0">Стикерпаки</a>
+          </li>
+          <li class="header__bottom_link">
+            <a class="btn btn-orange" href="#0">Где применяются</a>
+          </li>
+          <li class="header__bottom_link">
+            <a class="btn btn-orange" href="#0">Видеоблог</a>
+          </li>
+          <li class="header__bottom_link">
+            <a class="btn btn-orange" href="#0">Оплата и доставка</a>
+          </li>
+          <li class="header__bottom_link">
+            <a class="btn btn-orange" href="#0">Объемные брелоки</a>
+          </li>
+          <li class="header__bottom_link">
+            <a class="btn btn-orange" href="#0">Резка пленки</a>
+          </li>
+          <li class="header__bottom_link">
+            <a class="btn btn-orange" href="#0">Примеры работ</a>
+          </li>
+          <li class="header__bottom_link">
+            <a class="btn btn-orange" href="#0">Мы в VK</a>
+          </li>
+          <li class="header__bottom_link">
+            <a class="btn btn-orange" href="#0">Контакты</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section class="hero">
+        <div class="hero__content container">
+          <div class="hero__inner">
+            <h1>Объемные наклейки и магниты из смолы с доставкой в РФ</h1>
+            <p class="hero__text">
+              Отличный способ привлечь клиентов и заявить о себе!
+            </p>
+            <div class="hero__btns">
+              <button class="btn btn-white">Заказать звонок</button>
+              <button class="btn btn-white">Рассчитать стоимость</button>
+            </div>
+          </div>
+          <div class="hero__image">
+            <img src="./assets/photo.png" alt="">
+          </div>
+        </div>
+      </section>
+      <section class="advantages">
+        <ul class="advantages__list">
+          <li class="advantages__item">
+            <h3 class="advantages__item-title">Бесплатная проба</h3>
+            <p class="advantages__item-text">
+              Сомневаешься или не уверен в результате?<br>
+              Закажи бесплатную прорбу перед основным тиражом!
+              Убедись в качестве нашей продукции!
+            </p>
+            <div class="advantages__item-img">
+              <img src="./assets/adv1.png" alt="">
+            </div>
+          </li>
+          <li class="advantages__item">
+            <div class="advantages__item-img">
+              <img src="./assets/adv2.png" alt="">
+            </div>
+            <h3 class="advantages__item-title">Доставка в лбой город России или самовывоз!</h3>
+            <p class="advantages__item-text">
+              Упакуем надежно и с любовью, отправим удобной транспортной компанией, или ждём Вас в нашем офисе
+            </p>
+          </li>
+          <li class="advantages__item">
+            <h3 class="advantages__item-title">Разнообразие форм и кастомизация</h3>
+            <p class="advantages__item-text">
+              Не только кружки и квадраты, но так же сложные формы!<br>
+              Кастомизируй и создавай свою уникальную версию!<br>
+              — окрашивание смолы<br>
+              — длобавка блёсток<br>
+              — печать на голографической и прозрачной плёнках! 
+            </p>
+            <div class="advantages__item-img">
+              <img src="" alt="">
+            </div>
+          </li>
+          <li class="advantages__item">
+            <h3 class="advantages__item-title">Приятные скидки и бонусы!</h3>
+            <p class="advantages__item-text">
+              А еще мы изготавливаем: Объемные брелоки и магниты, стикерпаки и стикеры из самоклейки.
+            </p>
+            <div class="advantages__item-img">
+              <img src="./assets/adv3.png" alt="">
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <section class="order">
+        <div class="order__inner">
+          <div class="order__content container">
+        
+            <div class="order__form">
+              <h2 class="order__title">ONLINE ЗАКАЗ</h2>
+        
+              <form>
+                <input type="text" placeholder="Имя">
+                <input type="email" placeholder="E-mail">
+                <input type="tel" placeholder="Телефон">
+
+                <div class="order__btns">
+        
+                  <button type="submit" class="btn btn-blue btn-submit">
+                    Отправить заявку
+                  </button>
+          
+                  <label class="btn btn-blue btn-file">
+                    + Загрузить файл
+                    <input type="file" hidden>
+                  </label>
+                </div>
+              </form>
+            </div>
+        
+            <div class="order__image">
+              <img src="./assets/form.png" alt="Кот">
+              <p>
+                Отправляя форму, вы даёте согласие на обработку данных
+                и соглашаетесь с политикой конфиденциальности
+              </p>
+            </div>
+        
+          </div>
+          <p class="order__agreement">
+            Отправляя форму, вы даёте согласие на обработку данных
+            и соглашаетесь с политикой конфиденциальности
+          </p>
+        </div>
+      </section>
+
+      <section class="works">
+        <h2 class="works__title">
+          Примеры наших работ
+        </h2>
+        <div class="works__inner">
+          <div class="works__content container">
+            <div class="works__list">
+              <div class="works__img">
+                <img src="./assets/photo.png" alt="">
+              </div>
+              <div class="works__img">
+                <img src="./assets/photo.png" alt="">
+              </div>
+              <div class="works__img">
+                <img src="./assets/photo.png" alt="">
+              </div>
+              <div class="works__img">
+                <img src="./assets/photo.png" alt="">
+              </div>
+              <div class="works__img">
+                <img src="./assets/photo.png" alt="">
+              </div>
+              <div class="works__img">
+                <img src="./assets/photo.png" alt="">
+              </div>
+              <div class="works__img">
+                <img src="./assets/photo.png" alt="">
+              </div>
+              <div class="works__img">
+                <img src="./assets/photo.png" alt="">
+              </div>
+              <div class="works__img">
+                <img src="./assets/photo.png" alt="">
+              </div>
+              <div class="works__img">
+                <img src="./assets/photo.png" alt="">
+              </div>
+              <div class="works__img">
+                <img src="./assets/photo.png" alt="">
+              </div>
+              <div class="works__img">
+                <img src="./assets/photo.png" alt="">
+              </div>
+            </div>
+            <button class="works__btn btn btn-orange">Показать еще</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="price">
+        <div class="price__inner container">
+          <h2 class="price__title">
+            Прайс
+          </h2>
+          <div class="price__content">
+            <img src="./assets/price.png" alt="">
+          </div>
+        </div>
+      </section>
+
+      <section class="reviews">
+        <div class="reviews__inner container">
+          <h2 class="reviews__title">
+            Отзывы
+          </h2>
+          <div class="reviews__slider-wrap">
+            <div class="reviews__slider-arrow left">
+              <svg viewBox="0 0 47 125" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M34.0215 5.30566C36.8044 0.385149 44.3096 2.36067 44.3096 8.01367V116.963C44.3095 122.616 36.8044 124.59 34.0215 119.67L3.21289 65.1953C2.2628 63.5153 2.26275 61.4602 3.21289 59.7803L34.0215 5.30566Z" fill="#FF8800" stroke="white" stroke-width="5"/>
+              </svg>
+            </div>
+            <div class="reviews__slider-viewport">
+              <div class="reviews__slider">
+                <div class="reviews__slider-item">
+                  <h3 class="reviews__slider-name">Елена</h3>
+                  <p class="reviews__slider-text">
+                    ля-ля-ля, стикеры хорошие берите не пожалеете
+                  </p>
+                </div>
+                <div class="reviews__slider-item">
+                  <h3 class="reviews__slider-name">Елена</h3>
+                  <p class="reviews__slider-text">
+                    ля-ля-ля, стикеры хорошие берите не пожалеете
+                  </p>
+                </div>
+                <div class="reviews__slider-item">
+                  <h3 class="reviews__slider-name">Елена</h3>
+                  <p class="reviews__slider-text">
+                    ля-ля-ля, стикеры хорошие берите не пожалеете
+                  </p>
+                </div>
+                <div class="reviews__slider-item">
+                  <h3 class="reviews__slider-name">Елена</h3>
+                  <p class="reviews__slider-text">
+                    ля-ля-ля, стикеры хорошие берите не пожалеете
+                  </p>
+                </div>
+                <div class="reviews__slider-item">
+                  <h3 class="reviews__slider-name">Елена</h3>
+                  <p class="reviews__slider-text">
+                    ля-ля-ля, стикеры хорошие берите не пожалеете
+                  </p>
+                </div>
+                <div class="reviews__slider-item">
+                  <h3 class="reviews__slider-name">Елена</h3>
+                  <p class="reviews__slider-text">
+                    ля-ля-ля, стикеры хорошие берите не пожалеете
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="reviews__slider-arrow right">
+              <svg viewBox="0 0 47 125" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2.5 8.01367C2.5 2.3608 10.0041 0.385273 12.7871 5.30566L43.5967 59.7803C44.5468 61.4602 44.5467 63.5154 43.5967 65.1953L12.7871 119.671C10.004 124.591 2.50007 122.616 2.5 116.963V8.01367Z" fill="#FF8800" stroke="white" stroke-width="5"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="feedback">
+        <div class="feedback__inner container">
+          <h2>Оставить Отзыв</h2>
+          <form class="feedback__form" action="POST">
+            <input class="input feedback__form-name" name="name" placeholder="ИМЯ">
+            <textarea class="input" placeholder="текст отзыва"></textarea>
+            <button class="btn btn-blue feedback__form-btn">Отправить</button>
+          </form>
+          <p class="feedback__describe">
+            ОТПРАВЛЯЯ ФОРМУ, ВЫ ДАЁТЕ СОГЛАСИЕ НА ОБРАБОТКУ ДАННЫХ И СОГЛАШАЕТЕСЬ С ПОЛИТИКОЙ КОНФИДЕНЦИАЛЬНОСТИ
+          </p>
+        </div>
+      </section>
+      <section class="partners">
+        <div class="partners__inner container">
+          <h2 class="partners__title">Наши партнёры</h2>
+          <div class="partners__list">
+            <div class="partners__logo">
+              <img src="./assets/partner.png" alt="">
+            </div>
+            <div class="partners__logo">
+              <img src="./assets/partner.png" alt="">
+            </div>
+            <div class="partners__logo">
+              <img src="./assets/partner.png" alt="">
+            </div>
+            <div class="partners__logo">
+              <img src="./assets/partner.png" alt="">
+            </div>
+            <div class="partners__logo">
+              <img src="./assets/partner.png" alt="">
+            </div>
+          </div>
+          <button class="partners__btn btn btn-orange">Показать еще</button>
+        </div>
+      </section>
+    </main>
+
+    <script src="./index.js" type="module"></script>
 </body>
 </html>
