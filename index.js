@@ -185,9 +185,9 @@ button.addEventListener('click', () => {
     button.textContent = 'Показать еще';
   }
 
-  if (document.querySelectorAll('.partners__logo.hidden').length === 0) {
-    button.textContent = 'Скрыть';
-  }
+  // if (document.querySelectorAll('.partners__logo.hidden').length === 0) {
+  //   button.textContent = 'Скрыть';
+  // }
 });
 
 worksButton.addEventListener('click', () => {
@@ -209,7 +209,7 @@ worksButton.addEventListener('click', () => {
     worksButton.textContent = 'Показать еще';
   }
 
-  if (document.querySelectorAll('.works__img.hidden').length === 0) {
-    worksButton.textContent = 'Скрыть';
-  }
+  // if (document.querySelectorAll('.works__img.hidden').length === 0) {
+  //   worksButton.textContent = 'Скрыть';
+  // }
 });
