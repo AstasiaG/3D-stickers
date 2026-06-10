@@ -100,116 +100,130 @@ arrRight.addEventListener( "click" , Right);
 
 const cards = document.querySelectorAll('.partners__logo');
 const button = document.querySelector('.partners__btn');
+
 const works = document.querySelectorAll('.works__img');
 const worksButton = document.querySelector('.works__btn');
 
-let startIndex =
-window.innerWidth > 1473 ? 4 :
-window.innerWidth > 1097 ? 3 :
-      4;
+let partnersExpanded = false;
+let worksExpanded = false;
 
-let startIndexWorks =
-window.innerWidth > 1302 ? 9 :
-window.innerWidth > 873 ? 4 :
-      4;
+function getPartnersCount() {
+  return window.innerWidth > 1473 ? 4 :
+         window.innerWidth > 1097 ? 3 :
+         4;
+}
 
-window.addEventListener('resize', () => {
-  startIndex =
-  window.innerWidth > 1473 ? 4 :
-  window.innerWidth > 1097 ? 3 :
-        4;
-  
-  startIndexWorks =
-  window.innerWidth > 1302 ? 9 :
-  window.innerWidth > 873 ? 4 :
-        4;
-  
-  hideCards();
-  hideWorks();
-})
+function getWorksCount() {
+  return window.innerWidth > 1302 ? 9 :
+         window.innerWidth > 873 ? 4 :
+         4;
+}
 
-function hideCards() {
-  cards.forEach((card, index) => {
-    if (index >= startIndex) {
-      card.classList.add('hidden');
-      card.addEventListener('transitionend', function handler() {
-        card.style.display = 'none';
-        card.removeEventListener('transitionend', handler);
-      });
+function hideElement(el) {
+  el.classList.add('hidden');
+
+  const handler = () => {
+    if (el.classList.contains('hidden')) {
+      el.style.display = 'none';
+    }
+  };
+
+  el.addEventListener('transitionend', handler, { once: true });
+}
+
+function showElement(el) {
+  el.style.display = 'block';
+
+  requestAnimationFrame(() => {
+    el.classList.remove('hidden');
+  });
+}
+
+function resetBlock(elements, visibleCount) {
+  elements.forEach((el, index) => {
+    if (index < visibleCount) {
+      showElement(el);
     } else {
-      card.style.display = 'block';
-      requestAnimationFrame(() => {
-        card.classList.remove('hidden');
-      });
+      hideElement(el);
     }
   });
 }
 
-function hideWorks() {
-  works.forEach((work, index) => {
-    if (index >= startIndexWorks) {
-      work.classList.add('hidden');
-      work.addEventListener('transitionend', function handler() {
-        work.style.display = 'none';
-        work.removeEventListener('transitionend', handler);
-      });
-    } else {
-      work.style.display = 'block';
-      requestAnimationFrame(() => {
-        work.classList.remove('hidden');
-      });
-    }
-  });
-}
+function expandBlock(elements, count) {
+  const hidden = [...elements].filter(el =>
+    el.classList.contains('hidden')
+  );
 
-hideCards();
-hideWorks();
-
-button.addEventListener('click', () => {
-  const hiddenCards = document.querySelectorAll('.partners__logo.hidden');
-
-  if (hiddenCards.length > 0) {
-    for (let i = 0; i < startIndex && i < hiddenCards.length; i++) {
-      hiddenCards[i].style.display = 'block';
-
-      requestAnimationFrame(() => {
-        hiddenCards[i].classList.remove('hidden');
-
-        if (document.querySelectorAll('.partners__logo.hidden').length === 0) {
-          button.textContent = 'Скрыть';
-        }
-      });
-    }
-  } else {
-    hideCards();
-    button.textContent = 'Показать еще';
+  for (let i = 0; i < count && i < hidden.length; i++) {
+    showElement(hidden[i]);
   }
 
-  // if (document.querySelectorAll('.partners__logo.hidden').length === 0) {
-  //   button.textContent = 'Скрыть';
-  // }
+  return hidden.length <= count;
+}
+
+resetBlock(cards, getPartnersCount());
+resetBlock(works, getWorksCount());
+
+window.addEventListener('resize', () => {
+  if (!partnersExpanded) {
+    resetBlock(cards, getPartnersCount());
+  }
+
+  if (!worksExpanded) {
+    resetBlock(works, getWorksCount());
+  }
+});
+
+button.addEventListener('click', () => {
+
+  if (!partnersExpanded) {
+
+    const completed = expandBlock(
+      cards,
+      getPartnersCount()
+    );
+
+    if (completed) {
+      partnersExpanded = true;
+      button.textContent = 'Скрыть';
+    }
+
+  } else {
+
+    partnersExpanded = false;
+
+    resetBlock(
+      cards,
+      getPartnersCount()
+    );
+
+    button.textContent = 'Показать еще';
+  }
 });
 
 worksButton.addEventListener('click', () => {
-  const hiddenCards = document.querySelectorAll('.works__img.hidden');
 
-  if (hiddenCards.length > 0) {
-    for (let i = 0; i < startIndexWorks && i < hiddenCards.length; i++) {
-      hiddenCards[i].style.display = 'block';
-      requestAnimationFrame(() => {
-        hiddenCards[i].classList.remove('hidden');
+  if (!worksExpanded) {
 
-        if (document.querySelectorAll('.works__img.hidden').length === 0) {
-          worksButton.textContent = 'Скрыть';
-        }
-      });
+    const completed = expandBlock(
+      works,
+      getWorksCount()
+    );
+
+    if (completed) {
+      worksExpanded = true;
+      worksButton.textContent = 'Скрыть';
     }
+
   } else {
-    hideWorks();
+
+    worksExpanded = false;
+
+    resetBlock(
+      works,
+      getWorksCount()
+    );
+
     worksButton.textContent = 'Показать еще';
   }
-
-  // if (document.querySelectorAll('.works__img.hidden').length === 0) {
-  //   worksButton.textContent = 'Скрыть';
-  // }
 });
